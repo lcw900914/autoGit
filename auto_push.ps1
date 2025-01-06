@@ -18,7 +18,7 @@ $tokenURL = $RepoURL -replace "https://", "https://$($PatToken)@"
 git remote set-url origin $tokenURL
 
 try {
-    git pull origin main --rebase
+    git pull origin master --rebase
     Add-Content -Path $LogFile -Value "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') - Pulled latest changes."
 }
 catch {
@@ -35,7 +35,7 @@ if ($commitResult -match "nothing to commit") {
 }
 
 try {
-    git push origin main
+    git push origin master
     Add-Content -Path $LogFile -Value "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') - Pushed changes successfully."
 }
 catch {
